@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dégustation du 18 juillet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="zen_local.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <audio id="zenSound" src="cloche_japonaise.mp3" preload="auto"></audio>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: url('brasserie.jpg') center center / cover no-repeat fixed;
+      margin: 0;
+      padding: 2rem 1rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInPage 2s ease forwards;
+    }
+
+    @keyframes fadeInPage {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      width: 360px;
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      animation: fadeInSlide 1.2s ease-out both;
+    }
+
+    h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.4rem;
+      color: #222;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: #444;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-family: 'Noto Serif JP', serif;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      margin: 0.8rem auto;
+      width: 60%;
+      max-width: 220px;
+      transition: all 0.3s ease;
+    
+      background: #007bff;
+      color: white;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      margin: 1rem auto;
+      width: 80%;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #666;
+      box-shadow: 0 0 10px #aaa;
+      transform: scale(1.02);
+    
+      box-shadow: 0 0 12px #007bff80;
+      transform: scale(1.03);
+    }
+
+    @keyframes fadeInSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        position: static;
+        margin: 2rem auto;
+        width: auto;
+        text-align: center;
+      }
+    }
+  
+    .kanji-title {
+      cursor: pointer;
+      transition: text-shadow 0.3s ease;
+    }
+
+    .kanji-title:hover {
+      color: #fff;
+      text-shadow: 0 0 12px rgba(255,255,255,0.9),
+                   0 0 24px rgba(255,255,255,0.6),
+                   0 0 36px rgba(255,255,255,0.4);
+      text-shadow: 0 0 10px #ffffffaa;
+    }
+    </style>
+  <script>
+    function playZenSound() {
+      const audio = document.getElementById("zenSound");
+      if (audio) audio.play().catch(() => {});
+    }
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('zenSound');
+      if (audio) audio.play().catch(() => {});
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 onclick="playZenSound()" class="kanji-title">日本酒</h1>
+    <a class="btn" href="menu.pdf" target="_blank">Menu</a>
+    <a class="btn" href="sakes.pdf" target="_blank">Sakés</a>
+    <a class="btn" href="recette.pdf" target="_blank">Recette</a>
+    <a class="btn" href="convives.jpg" target="_blank">Convives</a>
+      <div style="margin-top: 2rem; font-size: 0.8rem; font-style: italic; color: #444;">CilMac – 18/07/2025 ⛩️</div>
+  </div>
+</body>
+</html>
