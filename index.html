@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Dégustation du 18 juillet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <link rel="icon" href="zen_local.png" type="image/png">
+  <audio id="zenSound" src="cloche_japonaise.mp3" preload="auto"></audio>
+  <style>
+.footer-text {
+  text-align: center;
+  font-size: 0.9em;
+  color: #ccc;
+  margin-top: 3em;
+  margin-bottom: 2em;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.btn {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.15em;
+  font-weight: 500;
+  color: white;
+  background-color: #333;
+  border: none;
+  border-radius: 0.6em;
+  padding: 0.9em 1.4em;
+  margin: 0.6em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #555;
+}
+
+    body {
+  font-family: 'Noto Serif JP', serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: url('brasserie_washi.jpg') center center / cover no-repeat fixed;
+      margin: 0;
+      padding: 2rem 1rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInPage 2s ease forwards;
+    }
+
+    @keyframes fadeInPage {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.88));
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      width: 360px;
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      animation: fadeInSlide 1.2s ease-out both;
+    }
+
+    h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.4rem;
+      color: #222;
+      text-shadow: 0 0 12px rgba(255,255,255,0.9),
+                   0 0 24px rgba(255,255,255,0.6),
+                   0 0 36px rgba(255,255,255,0.4);
+      cursor: pointer;
+    }
+
+    .btn {
+  font-family: 'Noto Serif JP', serif;
+      background: #444;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      font-family: 'Noto Serif JP', serif;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      margin: 0.8rem auto;
+      width: 60%;
+      max-width: 220px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #666;
+      box-shadow: 0 0 10px #aaa;
+      transform: scale(1.02);
+    }
+
+    .toggle-visibility {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #aaa;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      z-index: 20;
+    }
+
+    .toggle-visibility svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        position: static;
+        margin: 2rem auto;
+        width: auto;
+        text-align: center;
+      }
+      .convives-img {
+        max-width: 80vw !important;
+      }
+    }
+  
+.sub {
+  font-size: 0.75em;
+  opacity: 0.85;
+}
+
+
+.jp {
+  font-size: 1.05em;
+  margin-right: 0.4em;
+}
+
+
+.jp {
+  font-size: 1.05em;
+  font-weight: 500;
+}
+
+.sub {
+  font-size: 0.85em;
+  opacity: 0.9;
+  
+  font-weight: 400;
+}
+
+.sep {
+  margin: 0 0.5em;
+  opacity: 0.6;
+}
+
+
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 rgba(44, 44, 44, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(44, 44, 44, 0.35);
+    transform: scale(1.08);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(44, 44, 44, 0.2);
+    transform: scale(1);
+  }
+}
+.pdf-icon {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 30;
+  animation: pulse 2.6s ease-in-out infinite;
+}
+.pdf-icon:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.1);
+  animation: none;
+}
+.pdf-icon:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.1);
+}
+</style>
+  <script>
+    function playZenSound() {
+      const audio = document.getElementById('zenSound');
+      if (audio) audio.play().catch(() => {});
+    }
+
+    function openConvivesOverlay() {
+      document.getElementById('convivesOverlay').style.display = 'flex';
+    }
+
+    function closeConvivesOverlay() {
+      document.getElementById('convivesOverlay').style.display = 'none';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth > 1024 && !/Mobi|Android/i.test(navigator.userAgent)) {
+        document.querySelectorAll('a.btn').forEach(link => {
+          link.setAttribute('target', '_blank');
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 onclick="playZenSound()">酒の道</h1>
+    <a class="btn" href="menu.pdf"> <span class='sub'>Les stations</span></a>
+    <a class="btn" href="sakes.pdf"> <span class='sub'>Les flacons</span></a>
+    <a class="btn" href="recette.pdf"> <span class='sub'>Le bouillon</span></a>
+    <button class="btn" onclick="openConvivesOverlay()"> <span class='sub'>Les dégustons ;-)</span></button>
+    
+<div style="margin-top: 2rem; font-size: 0.85rem; color: #444; line-height: 1.6;">
+  <div>La voie du saké ⛩️</div>
+  <div style="">アンヌ＝マリーとアラン<br>7月18日</div>
+</div>
+  </div>
+  </div>
+
+  <div class="toggle-visibility"
+       onmousedown="document.querySelector('.container').style.display='none'"
+       onmouseup="document.querySelector('.container').style.display='block'"
+       ontouchstart="document.querySelector('.container').style.display='none'"
+       ontouchend="document.querySelector('.container').style.display='block'">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20C7 20 2.73 16.11 1 12c.74-1.81 1.87-3.41 3.22-4.71"/>
+      <path d="M22.54 12.88A10.94 10.94 0 0 0 12 4C10.06 4 8.22 4.57 6.6 5.55"/>
+      <line x1="1" y1="1" x2="23" y2="23"/>
+    </svg>
+  </div>
+
+  <div id="convivesOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background-color:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+    <div style="position:relative;">
+      <img src="convives.jpg" alt="Convives" style="max-width:50vw; max-height:90vh; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.4);" class="convives-img">
+      <button onclick="closeConvivesOverlay()" style="position:absolute; top:-16px; right:-16px; background:#fff; border:none; border-radius:50%; width:32px; height:32px; font-size:18px; cursor:pointer; box-shadow:0 0 8px rgba(0,0,0,0.3);">×</button>
+    </div>
+  </div>
+
+
+
+
+
+
+<a href="a_Savoir.pdf" target="_blank" class="pdf-icon" title="Informations techniques sur le saké">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2c2c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 2h10l6 6v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="6" y1="12" x2="14" y2="12"/>
+    <line x1="6" y1="15" x2="14" y2="15"/>
+    <line x1="6" y1="18" x2="12" y2="18"/>
+  </svg>
+</a>
+
+</body>
+
+
+</html>
